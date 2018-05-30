@@ -1,0 +1,27 @@
+[Unit]
+Description=v2ray 443
+#After=etcd.service
+
+[Service]
+Restart=always
+RestartSec=1
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill v2ray-443
+ExecStartPre=-/usr/bin/docker rm v2ray-443
+ExecStartPre=/usr/bin/docker pull v2ray/official
+
+ExecStart=/bin/bash -c " \
+  /usr/bin/docker run \
+    --name=v2ray-443 \
+    -v /etc/v2ray:/etc/v2ray \
+    -v /var/log/v2ray:/var/log/v2ray \
+    -p 443:443 \
+    v2ray/official \
+"
+
+#ExecStartPost=/usr/bin/etcdctl set /domains/example.com/%H:%i running
+ExecStop=/usr/bin/docker stop v2ray-443
+#ExecStopPost=/usr/bin/etcdctl rm /domains/example.com/%H:%i
+
+[Install]
+WantedBy=multi-user.target
