@@ -23,7 +23,7 @@ $ docker run -d --name=v2ray-443 -v /etc/v2ray:/etc/v2ray -v /var/log/v2ray:/var
 $ docker container restart v2ray-443
 $ docker container stop v2ray-443
 $ docker container rm v2ray-443
-$ docker container logs  v2ray-443
+$ docker container logs v2ray-443
 ```
 
 #### service
