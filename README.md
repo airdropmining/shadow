@@ -3,8 +3,15 @@
 
 #### ssh
 ```shell
+# local to remote
 $ cat v2ray/v2ray-443.service | ssh root@jp.airdropmining.com "cat >> /etc/v2ray/v2ray-443.service"
 $ cat v2ray/config.json | ssh root@jp.airdropmining.com "cat >> /etc/v2ray/config.json"
+$ scp -i -r ./v2ray/config.json root@jp.airdropmining.com:/etc/v2ray/config.json
+
+# remote to local
+$ tar -czvpf airdropmining.acme.tar.gz folderToCompress
+$ scp root@jp.airdropmining.com:/etc/v2ray/airdropmining.acme.tar.gz ~/airdropmining.acme.tar.gz
+$ sudo tar xpf airdropmining.acme.tar.gz
 ```
 
 #### acme
