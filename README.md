@@ -3,6 +3,9 @@
 
 #### ssh
 ```shell
+# login
+$ ssh -i ~/.ssh/vultr-universal root@jp.airdropmining.com
+
 # local to remote
 $ cat v2ray/v2ray-443.service | ssh root@jp.airdropmining.com "cat >> /etc/v2ray/v2ray-443.service"
 $ cat v2ray/config.json | ssh root@jp.airdropmining.com "cat >> /etc/v2ray/config.json"
