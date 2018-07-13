@@ -15,6 +15,9 @@ $ scp -i -r ./v2ray/config.json root@jp.airdropmining.com:/etc/v2ray/config.json
 $ tar -czvpf airdropmining.acme.tar.gz folderToCompress
 $ scp root@jp.airdropmining.com:/etc/v2ray/airdropmining.acme.tar.gz ~/airdropmining.acme.tar.gz
 $ sudo tar xpf airdropmining.acme.tar.gz
+
+# restart
+ssh -t root@jp.airdropmining.com "docker container restart v2ray-443"
 ```
 
 #### acme
